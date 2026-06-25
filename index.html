@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>CR7 Отель</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: #fafafa;
+        }
+        header, main, section, .mama {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1400px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        header {
+            display: flex;
+            background-color: antiquewhite;
+            min-height: 500px;
+            height: auto;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            border-radius: 30px;
+            padding: 20px 0;
+        }
+        header .opis {
+            width: 50%;
+            padding-left: 30px;
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        header .kartina {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        .kartina img {
+            width: 100%;
+            max-width: 502px;
+            height: auto;
+            border-radius: 50px 0 0 50px;
+            object-fit: cover;
+        }
+        .opis menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .opis menu h1 {
+            font-size: 28px;
+            margin-right: 10px;
+        }
+        .opis menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+        .opis menu a:hover {
+            color: rgb(145, 122, 161);
+        }
+        .opis p {
+            font-size: clamp(24px, 4vw, 40px);
+            font-weight: 600;
+            line-height: 1.2;
+            margin: 20px 0 10px 0;
+        }
+        .preim {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 6px 0;
+            font-size: 18px;
+        }
+        .krug {
+            background-color: rgb(145, 122, 161);
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .knopky {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 30px;
+            margin-top: 30px;
+        }
+        .zab, .vyb {
+            border: none;
+            outline: none;
+            background-color: rgb(145, 122, 161);
+            color: white;
+            border-radius: 40px;
+            padding: 14px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            min-width: 160px;
+        }
+        .zab:hover, .vyb:hover {
+            background-color: rgb(120, 97, 136);
+            transform: scale(1.02);
+        }
+        main {
+            background-color: rgb(239, 227, 255);
+            padding: 30px 20px 40px;
+            margin-top: 30px;
+            border-radius: 40px;
+            height: auto;
+            min-height: 550px;
+        }
+        main h1 {
+            margin-left: 20px;
+            font-size: 36px;
+        }
+        .nomera {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px 40px;
+            margin-top: 20px;
+        }
+        .kartochka {
+            background-color: rgb(234, 181, 223);
+            border-radius: 30px;
+            width: 280px;
+            max-width: 100%;
+            padding: 10px;
+            flex: 0 1 280px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.25s;
+        }
+        .kartochka:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+        .kartochka img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        .kartochka h2 {
+            margin: 10px 0 6px 8px;
+            font-size: 24px;
+        }
+        .kartochka p {
+            margin: 6px 8px 12px 8px;
+            font-size: 15px;
+            line-height: 1.4;
+            flex: 1;
+        }
+        .kartochka button {
+            width: 80%;
+            max-width: 180px;
+            height: 44px;
+            margin: 10px auto 14px;
+            background-color: rgb(145, 122, 161);
+            border: none;
+            border-radius: 40px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .kartochka button:hover {
+            background-color: rgb(120, 97, 136);
+        }
+        section {
+            background-color: rgb(245, 202, 251);
+            padding: 30px 20px 40px;
+            margin-top: 30px;
+            border-radius: 40px;
+            height: auto;
+            min-height: 550px;
+        }
+        section h1 {
+            margin-left: 20px;
+            font-size: 36px;
+        }
+        .foto, .foto1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .foto img, .foto1 img {
+            height: 200px;
+            width: auto;
+            max-width: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+            transition: 0.2s;
+            flex: 1 0 160px;
+        }
+        .foto1 img {
+            flex: 1 0 180px;
+        }
+        .foto img:hover, .foto1 img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .mama {
+            background-color: rgb(224, 253, 255);
+            padding: 30px 20px 40px;
+            margin-top: 30px;
+            border-radius: 40px;
+            height: auto;
+            min-height: 550px;
+        }
+        .mama h1 {
+            margin-left: 20px;
+            font-size: 36px;
+            margin-top: 20px;
+        }
+        .mama p {
+            font-size: clamp(18px, 2.2vw, 24px);
+            margin: 12px 20px 0 20px;
+            line-height: 1.5;
+        }
+        .support-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: rgb(145, 122, 161);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 28px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .support-btn:hover {
+            transform: scale(1.05);
+            background-color: rgb(120, 97, 136);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            background-color: white;
+            margin: 20px auto;
+            padding: 30px 28px;
+            border-radius: 28px;
+            max-width: 480px;
+            width: 92%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s;
+            position: relative;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 32px;
+            cursor: pointer;
+            color: #999;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: #333;
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            color: rgb(145, 122, 161);
+            text-align: center;
+        }
+        .modal-content label {
+            display: block;
+            margin-top: 18px;
+            font-weight: 600;
+            color: #222;
+        }
+        .modal-content input,
+        .modal-content textarea {
+            width: 100%;
+            padding: 12px 14px;
+            margin-top: 6px;
+            border: 2px solid #ddd;
+            border-radius: 14px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        .modal-content input:focus,
+        .modal-content textarea:focus {
+            border-color: rgb(145, 122, 161);
+            outline: none;
+        }
+        .modal-content textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        .modal-content .send-btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 22px;
+            background-color: rgb(145, 122, 161);
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .modal-content .send-btn:hover {
+            background-color: rgb(120, 97, 136);
+        }
+        .success-message, .error-message {
+            display: none;
+            text-align: center;
+            font-size: 17px;
+            padding: 12px;
+            border-radius: 16px;
+            margin-top: 18px;
+        }
+        .success-message {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .error-message {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        @media (max-width: 992px) {
+            header .opis, header .kartina {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            header .opis {
+                order: 1;
+            }
+            header .kartina {
+                order: 0;
+                margin-bottom: 10px;
+            }
+            .kartina img {
+                border-radius: 40px;
+                max-width: 100%;
+            }
+            .opis p {
+                font-size: clamp(26px, 5vw, 38px);
+            }
+            .knopky {
+                justify-content: center;
+            }
+            .zab, .vyb {
+                min-width: 140px;
+                padding: 12px 20px;
+            }
+            main h1, section h1, .mama h1 {
+                margin-left: 10px;
+                font-size: 32px;
+            }
+            .nomera {
+                gap: 20px;
+            }
+            .kartochka {
+                flex: 0 1 260px;
+            }
+            .foto img, .foto1 img {
+                height: 170px;
+                flex: 1 0 140px;
+            }
+        }
+        @media (max-width: 700px) {
+            header {
+                min-height: auto;
+                padding: 20px 10px;
+            }
+            .opis menu {
+                justify-content: center;
+                gap: 8px 16px;
+            }
+            .opis menu a {
+                font-size: 16px;
+            }
+            .opis p {
+                text-align: center;
+                font-size: 28px;
+                margin: 10px 0;
+            }
+            .preim {
+                justify-content: center;
+                font-size: 16px;
+            }
+            .knopky {
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .kartina img {
+                border-radius: 30px;
+            }
+            .support-btn {
+                padding: 12px 20px;
+                font-size: 16px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .modal-content {
+                padding: 24px 18px;
+            }
+            .modal-content h2 {
+                font-size: 24px;
+            }
+            .foto img, .foto1 img {
+                height: 150px;
+                flex: 1 0 120px;
+            }
+            .mama p {
+                margin-left: 10px;
+                margin-right: 10px;
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 480px) {
+            header, main, section, .mama {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+            .opis menu h1 {
+                font-size: 22px;
+            }
+            .opis p {
+                font-size: 24px;
+            }
+            .zab, .vyb {
+                min-width: 120px;
+                padding: 10px 16px;
+                font-size: 16px;
+            }
+            .kartochka {
+                flex: 0 1 100%;
+                max-width: 340px;
+                margin: 0 auto;
+            }
+            .kartochka img {
+                aspect-ratio: 4/3;
+            }
+            .foto img, .foto1 img {
+                height: 130px;
+                flex: 1 0 100px;
+            }
+            .support-btn {
+                padding: 10px 16px;
+                font-size: 14px;
+                bottom: 16px;
+                right: 16px;
+            }
+            .modal-content {
+                padding: 20px 14px;
+                width: 96%;
+            }
+        }
+        @media (min-width: 1600px) {
+            header, main, section, .mama {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="opis">
+            <menu>
+                <h1>CR7</h1>
+                <a href="#" data-target="about">О нас</a>
+                <a href="#" data-target="rooms">Номера</a>
+                <a href="#" data-target="gallery">Галерея</a>
+                <a href="#" data-target="contacts">Контакты</a>
+            </menu>
+            <p>ОТЕЛЬ <br> В КОТОРОМ ФАРМИТСЯ<br>АУРА И ДИСЦИПЛИНА</p>
+            <div class="preim"><div class="krug">C</div>Приятные цены</div>
+            <div class="preim"><div class="krug">R</div>Крутые номера</div>
+            <div class="preim"><div class="krug">7</div>Пахнет Роналду</div>
+            <div class="knopky">
+                <button class="zab" >Забронировать</button>
+                <button class="vyb">Выбрать номер</button>
+            </div>
+        </div> 
+        <div class="kartina">
+            <img src="vr7.jpg" alt="Отель CR7" width="502" height="440" loading="lazy">
+        </div>
+    </header>
+    <main id="rooms">
+        <h1>НОМЕРА</h1>
+        <div class="nomera">
+            <div class="kartochka">
+                <img src="kom.jpg" alt="Комфорт" width="250" height="230" loading="lazy">
+                <h2>Комфорт</h2>
+                <p>«Комфорт» - уютный номер площадью 16 кв.м. с видом на улицу или во внутренний двор.</p>
+                <button>Подробнее</button>
+            </div>
+            <div class="kartochka">
+                <img src="image.png" alt="Комфорт+" width="250" height="230" loading="lazy">
+                <h2>Комфорт+</h2>
+                <p>«Комфорт+» — это просторное и продуманно обустроенное пространство, созданное для максимально приятного пребывания</p>
+                <button>Подробнее</button>
+            </div>
+            <div class="kartochka">
+                <img src="bhh.webp" alt="Люкс" width="250" height="230" loading="lazy">
+                <h2>Люкс</h2>
+                <p>Люкс — это просторное и элегантно оформленное пространство площадью продуманно разделённое на функциональные зоны</p>
+                <button>Подробнее</button>
+            </div>
+        </div>
+    </main>
+    <section id="gallery">
+        <h1>Галерея</h1>
+        <div class="foto">
+            <img src="ф1.jpg" alt="Галерея 1" height="200" loading="lazy">
+            <img src="f1.webp" alt="Галерея 2" height="200" loading="lazy">
+            <img src="g2.jpg" alt="Галерея 3" height="200" loading="lazy">
+            <img src="dd2.webp" alt="Галерея 4" height="200" width="220" loading="lazy">
+        </div>
+        <div class="foto1">
+            <img src="13123.webp" alt="Галерея 5" loading="lazy">
+            <img src="vvvz.webp" alt="Галерея 6" loading="lazy">
+            <img src="11111113.jpg" alt="Галерея 7" width="400" loading="lazy">
+        </div>
+    </section>
+    <div class="mama" id="contacts">
+        <h1 id="about">О нас</h1>
+        <p>Мы создаём пространство, где каждая деталь продумана ради вашего комфорта. Наш отель — это не просто место для ночлега, а уютная гавань, в которой можно по-настоящему отдохнуть от суеты города. Мы бережно относимся к каждому гостю и стремимся сделать пребывание максимально приятным: от безупречной чистоты в номерах до внимательного сервиса, который остаётся незаметным, пока он не нужен, и мгновенно откликается, когда требуется помощь. В основе нашей работы — искреннее гостеприимство и высокие стандарты качества, проверенные временем.</p>
+        <h1>Контакты</h1>
+        <p>Номер Кристины Роналду - +999</p>
+        <p>Владелец - 8999121292</p>
+        <p>Запись по номеру - +8 951 092 84 20</p>
+    </div>
+
+    <button class="support-btn" id="supportBtn">💬 Поддержка</button>
+
+    <div class="modal" id="supportModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2>📩 Написать в поддержку</h2>
+            <form id="supportForm">
+                <label for="userName">Ваше имя</label>
+                <input type="text" id="userName" placeholder="Иван Иванов" required>
+                <label for="userEmail">Ваш Email</label>
+                <input type="email" id="userEmail" placeholder="ivan@example.com" required>
+                <label for="userMessage">Сообщение</label>
+                <textarea id="userMessage" placeholder="Опишите ваш вопрос или проблему..." required></textarea>
+                <button type="submit" class="send-btn">Отправить сообщение</button>
+            </form>
+            <div class="success-message" id="successMessage">✅ Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.</div>
+            <div class="error-message" id="errorMessage">❌ Не удалось отправить сообщение. Попробуйте позже.</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('menu a[data-target]');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    let targetElement = null;
+                    if (targetId === 'about') {
+                        targetElement = document.getElementById('about');
+                        if (!targetElement) {
+                            const mamaDiv = document.querySelector('.mama');
+                            if (mamaDiv) {
+                                const aboutH1 = mamaDiv.querySelector('h1:first-of-type');
+                                if (aboutH1) targetElement = aboutH1;
+                            }
+                        }
+                    } else if (targetId === 'rooms') {
+                        targetElement = document.getElementById('rooms');
+                    } else if (targetId === 'gallery') {
+                        targetElement = document.getElementById('gallery');
+                    } else if (targetId === 'contacts') {
+                        targetElement = document.getElementById('contacts');
+                    }
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            const modal = document.getElementById('supportModal');
+            const supportBtn = document.getElementById('supportBtn');
+            const closeModal = document.getElementById('closeModal');
+            const form = document.getElementById('supportForm');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+
+            supportBtn.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                successMsg.style.display = 'none';
+                errorMsg.style.display = 'none';
+            });
+
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('userName').value.trim();
+                const email = document.getElementById('userEmail').value.trim();
+                const message = document.getElementById('userMessage').value.trim();
+
+                if (!name || !email || !message) {
+                    errorMsg.textContent = '❌ Пожалуйста, заполните все поля.';
+                    errorMsg.style.display = 'block';
+                    successMsg.style.display = 'none';
+                    return;
+                }
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    errorMsg.textContent = '❌ Пожалуйста, введите корректный email.';
+                    errorMsg.style.display = 'block';
+                    successMsg.style.display = 'none';
+                    return;
+                }
+
+                const subject = encodeURIComponent(`Сообщение от ${name} (Поддержка отеля CR7)`);
+                const body = encodeURIComponent(`Имя: ${name}\nEmail: ${email}\n\nСообщение:\n${message}`);
+                const mailtoLink = `mailto:andreylaykov123@gmail.com?subject=${subject}&body=${body}`;
+
+                try {
+                    window.location.href = mailtoLink;
+                    successMsg.style.display = 'block';
+                    errorMsg.style.display = 'none';
+                    form.reset();
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        successMsg.style.display = 'none';
+                    }, 3000);
+                } catch (error) {
+                    errorMsg.textContent = '❌ Ошибка при открытии почтового клиента. Попробуйте позже.';
+                    errorMsg.style.display = 'block';
+                    successMsg.style.display = 'none';
+                    console.error(error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
